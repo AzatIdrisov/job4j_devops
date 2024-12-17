@@ -3,17 +3,23 @@ dependencyResolutionManagement {
         create("devops") {
             library(
                 "lombok",
-                "org.projectlombok:lombok:1.18.36"
+                "org.projectlombok:lombok:${
+                    providers.gradleProperty("lombok.version").get()
+                }"
             )
             library(
                 "springBootStarterWeb",
-                "org.springframework.boot:spring-boot-starter-web:3.4.0"
+                "org.springframework.boot:spring-boot-starter-web:${
+                    providers.gradleProperty("spring.boot.version").get()
+                }"
             )
         }
         create("tests") {
             library(
                 "springBootStarterTest",
-                "org.springframework.boot:spring-boot-starter-test:3.4.0"
+                "org.springframework.boot:spring-boot-starter-test:${
+                    providers.gradleProperty("spring.boot.version").get()
+                }"
             )
             library(
                 "junitPlatformLauncher",
