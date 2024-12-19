@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * DTO для передачи двух значений
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
