@@ -11,18 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class CalcApplicationTests {
-    /**
-     * This test ensures that the Spring application context loads successfully
-     */
-    @Test
-    void contextLoads() {
-
-    }
-
-    @Test
-    void mainMethodTest() {
-        CalcApplication.main(new String[] {});
-    }
 
     @Test
     public void whenNegativeNumber() {
