@@ -21,4 +21,9 @@ class CalcApplicationTests {
         assertThat(output.getBody()).isEqualTo(expected);
     }
 
+    @Test
+    public void dummyTest() {
+        assertThat(true).isTrue();
+    }
+
 }
