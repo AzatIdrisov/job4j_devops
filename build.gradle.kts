@@ -5,6 +5,7 @@ plugins {
 	id("org.springframework.boot") version "3.4.0"
 	id("io.spring.dependency-management") version "1.1.6"
     id("com.github.spotbugs") version "6.0.26"
+    id("com.google.cloud.tools.jib") version "3.4.0"
 }
 
 group = "ru.job4j.devops"
@@ -107,5 +108,20 @@ tasks.register<Zip>("archiveResources") {
 
     doLast {
         println("Resources archived successfully at ${outputDir.get().asFile.absolutePath}")
+    }
+}
+
+jib {
+    from {
+        image = "eclipse-temurin:17-jre"
+    }
+    to {
+        image = "ru.job4j.devops"
+        tags = setOf("latest", project.version.toString())
+    }
+    container {
+        ports = listOf("8080")
+        jvmFlags = listOf("-Xms512m", "-Xmx1024m")
+        mainClass = "ru.job4j.devops.CalcApplication"
     }
 }
