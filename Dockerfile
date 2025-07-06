@@ -5,6 +5,6 @@ COPY . .
 RUN gradle clean build -x test
 
 FROM openjdk:21-ea-slim-bullseye
-COPE --from=builder /job4j_devops/build/libs/DevOps-1.0.0.jar DevOps-1.0.0.jar
+COPY --from=builder /job4j_devops/build/libs/DevOps-1.0.0.jar DevOps-1.0.0.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "DevOps-1.0.0.jar"]
